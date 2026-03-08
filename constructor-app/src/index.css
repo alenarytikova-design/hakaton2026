@@ -1,2 +1,109 @@
 @import "tailwindcss";
 @plugin "daisyui";
+
+/* 1. Глобальные настройки шрифта и фона */
+:root {
+  font-family: 'Inter', system-ui, Avenir, Helvetica, Arial, sans-serif;
+  background-color: #F8F9FB; /* Светло-серый фон из макета */
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  /* Путь к картинке из папки assets */
+  background-image: url('./assets/gzhel-pattern.webp'); 
+  background-repeat: repeat; /* Чтобы узор заполнял всё пространство */
+  background-size: 180px;    /* Размер одного квадрата узора */
+  background-attachment: fixed; /* Узор будет стоять на месте при скролле */
+}
+
+#root {
+  max-width: 1440px;
+  margin: 0 auto;
+  background-color: #F8F9FB; /* Цвет основного контента поверх гжели */
+  min-height: 100vh;
+  box-shadow: 0 0 100px rgba(0,0,0,0.2);
+}
+
+/* 3. Кастомные стили для элементов дизайна "Наследие России" */
+
+/* Темно-синяя боковая панель настроек */
+.sidebar-navy {
+  background-color: #1E3A8A;
+  color: white;
+}
+
+/* Терракотовая кнопка "Подобрать" */
+.btn-terracotta {
+  background-color: #A65E4E !important;
+  border: none !important;
+  color: white !important;
+  transition: all 0.3s ease;
+}
+
+.btn-terracotta:hover {
+  background-color: #8d4e41 !important;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(166, 94, 78, 0.3);
+}
+
+/* Стилизация выпадающих списков внутри синей панели */
+.sidebar-select {
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: white;
+}
+
+.sidebar-select:focus {
+  border-color: rgba(255, 255, 255, 0.5);
+  outline: none;
+}
+
+/* 4. Оформление карточек результатов */
+.scenario-card {
+  background: white;
+  border-radius: 1.5rem; /* Закругленные углы как на макете */
+  border: 1px solid #e5e7eb;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.scenario-card:hover {
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
+}
+
+/* 5. Индикатор этапов (1 -- 7) */
+.steps-divider {
+  height: 2px;
+  background-color: #E5E7EB;
+  flex-grow: 1;
+}
+
+/* 6. Анимация для ошибки валидации */
+.error-shake {
+  animation: shake 0.4s cubic-bezier(.36,.07,.19,.97) both;
+}
+
+@keyframes shake {
+  10%, 90% { transform: translate3d(-1px, 0, 0); }
+  20%, 80% { transform: translate3d(2px, 0, 0); }
+  30%, 50%, 70% { transform: translate3d(-4px, 0, 0); }
+  40%, 60% { transform: translate3d(4px, 0, 0); }
+}
+
+/* Исправление видимости текста в выпадающих списках */
+.sidebar-select option {
+  background-color: white !important; /* Белый фон выпадающего списка */
+  color: #1a1a1a !important;        /* Черный цвет текста */
+  padding: 10px;
+}
+
+/* Для Safari и Chrome на мобильных устройствах */
+select.sidebar-select {
+  color: white !important; /* Текст самой кнопки выбора остается белым */
+}
+
+/* При фокусе на селекте убираем стандартную синюю обводку браузера */
+.sidebar-select:focus {
+  outline: 2px solid rgba(255, 255, 255, 0.5);
+  outline-offset: 2px;
+}
