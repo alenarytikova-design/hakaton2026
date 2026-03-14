@@ -107,3 +107,15 @@ select.sidebar-select {
   outline: 2px solid rgba(255, 255, 255, 0.5);
   outline-offset: 2px;
 }
+
+#pdf-content {
+  --p: #1E3A8A; /* Primary (Синий) */
+  --s: #A65E4E; /* Secondary (Терракотовый) */
+  --b1: #ffffff; /* Background */
+  --bc: #1f2937; /* Content text */
+  color: #1f2937; /* Явно задаем цвет текста */
+}
+
+#pdf-content * {
+  color-scheme: light;
+}
