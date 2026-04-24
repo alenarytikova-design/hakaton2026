@@ -1,0 +1,1119 @@
+/* Убираем всё лишнее на уровне всей страницы */
+html {
+  margin: 0;
+  padding: 0;
+  /* Красим всё пространство в цвет фона приложения */
+  background-color: #fcf6e9;
+  /* Накладываем паттерн на ВЕСЬ экран, без ограничений по бокам */
+  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 0L60 30L30 60L0 30Z' fill='%23d35400' fill-opacity='0.03'/%3E%3C/svg%3E");
+  background-attachment: fixed;
+  overflow-x: hidden;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  /* Путь к твоей картинке */
+  background-image: url('/assets/pattern.jpg');
+  background-repeat: repeat;
+  /* Узор будет размножаться во все стороны */
+  background-size: 300px;
+  /* Размер одного сегмента узора, подбери под себя */
+  background-attachment: fixed;
+  /* Узор не будет двигаться при скролле */
+}
+
+
+
+/* Настройка центрального контейнера */
+/* .app-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: rgba(252, 246, 233, 0.92); 
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.1);
+  z-index: 1;
+} */
+
+/* Если хочешь, чтобы узор был совсем бледным, можно наложить фильтр в самом body */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(252, 246, 233, 0.7);
+  /* Наложение цвета поверх узора для мягкости */
+  z-index: -1;
+}
+
+/* .-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+
+  background: transparent; 
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+}
+.app-container::before,
+.app-container::after {
+  display: none !important;
+} */
+
+/* .route-card {
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 15px;
+  background: #fff;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+} */
+/* app
+.profile {
+  background: white;
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+} */
+
+.profile-btn {
+  background: #fdf2e9;
+  color: #d35400;
+  border: 1px solid #d35400;
+}
+
+.profile-card {
+  background: white;
+  padding: 40px;
+  border-radius: 24px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+  max-width: 500px;
+  margin: 40px auto;
+}
+
+.profile-header {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.profile-avatar-large {
+  font-size: 3rem;
+  background: #fdf2e9;
+  padding: 15px;
+  border-radius: 50%;
+}
+
+.avatar-picker {
+  display: flex;
+  gap: 10px;
+  margin: 15px 0;
+}
+
+.avatar-picker button {
+  font-size: 1.5rem;
+  padding: 10px;
+  border: 2px solid transparent;
+  background: #f5f5f5;
+}
+
+.avatar-picker button.active {
+  border-color: var(--accent-color);
+  background: #fff5ee;
+}
+
+input[type="text"] {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 1rem;
+}
+
+.button-group {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.save-btn {
+  background-color: #27ae60;
+}
+
+.cancel-btn {
+  background-color: #95a5a6;
+}
+
+.map-wrapper {
+  margin: 20px 0;
+  border-radius: 20px;
+  overflow: hidden;
+  border: 4px solid #d35400;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+/* .map-container {
+  width: 100%;
+  background-color: #f0f0f0;
+} */
+
+.map-container {
+  width: 100%;
+  height: 500px;
+  /* Фиксированная высота в пикселях */
+  min-height: 500px;
+  background-color: #f0f0f0;
+  position: relative;
+}
+
+.map-section {
+  width: 100%;
+  margin-bottom: 40px;
+}
+
+/* Стили для элементов управления OL (опционально) */
+.ol-zoom {
+  top: 20px;
+  left: 20px;
+}
+
+.ol-control button {
+  background-color: #d35400 !important;
+  border-radius: 5px !important;
+}
+
+/* .journey-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0; */
+/* background: rgba(0,0,0,0.7); */
+/* background: #fcf6e9;
+  z-index: 9999;
+  overflow-y: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  padding: 20px;
+} */
+.journey-overlay {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-color: rgba(252, 246, 233, 0.98);
+  z-index: 10000;
+  display: flex;
+  justify-content: center;
+  align-items: center; /* Центрируем карточку по вертикали */
+  padding: 20px;
+}
+
+.journey-container {
+  background: white;
+  width: 100%;
+  max-width: 600px;
+  border-radius: 32px;
+  box-shadow: 0 25px 80px rgba(0,0,0,0.15);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+/* .journey-header {
+  padding: 20px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  border-bottom: 1px solid #f0f0f0;
+  flex-direction: column;
+} */
+
+.journey-header {
+  padding: 40px 40px 20px 40px;
+  background: #fff;
+}
+.journey-main-title {
+  margin: 15px 0;
+  font-size: 1.8rem;
+  line-height: 1.2;
+  color: #2c3e50;
+  padding-right: 40px; /* Чтобы не наезжать на крестик */
+}
+.close-journey-btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: none;
+  background: #f5f5f5;
+  color: #666;
+  font-size: 20px;
+  cursor: pointer;
+  z-index: 10;
+  transition: all 0.2s;
+}
+
+.close-journey-btn:hover {
+  background: #eee;
+  transform: rotate(90deg);
+}
+
+.journey-card {
+  background: white;
+  padding: 30px;
+  border-radius: 20px;
+  max-width: 500px;
+  width: 100%;
+  position: relative;
+}
+
+.step-badge {
+  background: #eee;
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  color: #666;
+}
+
+.options-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 20px 0;
+}
+
+.option-btn {
+  background: #f8f9fa;
+  border: 2px solid #eee;
+  text-align: left;
+  color: #333;
+}
+
+.option-btn.selected {
+  border-color: var(--accent-color);
+  background: #fff5ee;
+}
+
+.points-added {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #27ae60;
+}
+
+.constructor-container {
+  background: #fdf2e9;
+  padding: 15px;
+  border-radius: 15px;
+  margin: 15px 0;
+}
+
+.canvas-area {
+  min-height: 80px;
+  background: white;
+  border: 2px dashed #d35400;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+  margin-bottom: 15px;
+  flex-wrap: wrap;
+}
+
+.canvas-item {
+  font-size: 2rem;
+  filter: drop-shadow(2px 2px 2px rgba(0, 0, 0, 0.1));
+}
+
+.elements-picker {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.elements-picker button {
+  font-size: 1.5rem;
+  padding: 10px;
+  background: white;
+  border: 1px solid #ddd;
+}
+
+.placeholder {
+  color: #aaa;
+  font-style: italic;
+}
+
+/* Основной контейнер каталога */
+/* .catalog-wrapper {
+  display: flex;
+  flex-direction: column;
+  background: #fcf6e9;
+} */
+
+.section-title {
+  padding: 0 5%;
+  color: #5d4037;
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+}
+
+/* Сетка карточек */
+/* .route-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+  padding: 0 5% 50px 5%;
+} */
+
+/* Сама карточка в стиле макета */
+/* .route-card {
+  background: white;
+  border-radius: 24px;
+  padding: 24px;
+  border: 1px solid #efebe9;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 180px;
+} */
+
+.card-content {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.card-icon-circle {
+  width: 60px;
+  height: 60px;
+  border-radius: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.card-text h3 {
+  margin: 0;
+  font-size: 1.4rem;
+  color: #2c3e50;
+}
+
+.card-text p {
+  margin: 4px 0 0 0;
+  color: #8d6e63;
+  font-size: 0.95rem;
+}
+
+/* Кнопка "Изучить" */
+.card-explore-btn {
+  width: 100%;
+  padding: 14px;
+  border: none;
+  border-radius: 14px;
+  color: white;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  transition: transform 0.2s, filter 0.2s;
+}
+
+.card-explore-btn:hover {
+  filter: brightness(1.1);
+  transform: scale(1.02);
+}
+
+/* .journey-progress-container {
+  margin-bottom: 20px;
+} */
+
+.journey-progress-container {
+  margin-top: 20px;
+}
+
+.journey-progress-container .progress-text {
+  display: block;
+  font-size: 0.8rem;
+  color: #888;
+  margin-top: 8px;
+  font-weight: 600;
+}
+
+.journey-progress-container {
+  height: 8px;
+  background: #f0f0f0;
+  border-radius: 10px;
+  position: relative;
+}
+
+.journey-progress {
+  height: 6px;
+  background: #eee;
+  width: 100%;
+}
+
+.route-badge {
+  color: white;
+  padding: 4px 12px;
+  border-radius: 8px;
+  font-size: 0.8rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+  display: inline-block;
+}
+
+.progress-label {
+  font-size: 0.8rem;
+  color: #a8764b;
+  font-weight: bold;
+  margin-bottom: 5px;
+  text-transform: uppercase;
+}
+
+.progress-bar-bg {
+  height: 6px;
+  background: #eeebe3;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.progress-bar-fill {
+  height: 100%;
+  background: #d35400;
+  /* Тот самый терракотовый цвет */
+}
+
+/* Узор, вдохновленный твоим примером
+.app-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: #fcf6e9;
+
+  background-image: url("data:image/svg+xml,%3Csvg width='180' height='180' viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23d35400' fill-opacity='0.12' fill-rule='evenodd'%3E%3Cpath d='M10 10c10-5 25-5 35 5s10 30 0 45-20 15-35 15-15-15-10-30s10-15 10-15zm30-5s20 5 30 20-5 30-20 30-25-10-30-20-5-30 20-30z'/%3E%3Cpath d='M90 90c10-5 25-5 35 5s10 30 0 45-20 15-35 15-15-15-10-30s10-15 10-15zm30-5s20 5 30 20-5 30-20 30-25-10-30-20-5-30 20-30z'/%3E%3Ccircle cx='55' cy='155' r='8'/%3E%3Ccircle cx='155' cy='55' r='8'/%3E%3C/g%3E%3C/svg%3E"), 
+    radial-gradient(circle at center, #fcf6e9 0%, #f5f0e6 100%);
+
+  background-size: 250px 250px; 
+  background-repeat: repeat;
+  
+  position: relative;
+  overflow: hidden;
+} */
+
+.btn-xp {
+  font-size: 0.7rem;
+  background: rgba(255, 255, 255, 0.2);
+  padding: 2px 6px;
+  border-radius: 4px;
+  margin-left: 8px;
+  vertical-align: middle;
+}
+
+h1,
+h2,
+h3,
+.logo-text {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 900;
+}
+
+.hero {
+  position: relative;
+  height: calc(100vh - 70px);
+  /* Высота на весь экран минус навигация */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+  /* Замени URL на реальное фото Самары или Волги для атмосферы */
+  background: url('https://images.unsplash.com/photo-1590076215667-875d4ef2d7ee?q=80&w=2000') no-repeat center center;
+  background-size: cover;
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(to bottom, rgba(252, 246, 233, 0.4), rgba(252, 246, 233, 0.95));
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 800px;
+  padding: 0 20px;
+}
+
+.hero-subtitle {
+  display: block;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  color: #d35400;
+  font-weight: 700;
+  font-size: 0.9rem;
+  margin-bottom: 15px;
+}
+
+.hero h1 {
+  font-size: clamp(2.5rem, 8vw, 4.5rem);
+  /* Адаптивный размер шрифта */
+  line-height: 1.1;
+  margin-bottom: 25px;
+  color: #2c3e50;
+}
+
+.hero h1 span {
+  color: #d35400;
+  background: linear-gradient(transparent 70%, #f39c12 70%);
+  /* Подчеркивание как в макете */
+  text-shadow: 2px 2px 0px #fcf6e9, -2px -2px 0px #fcf6e9, 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.hero p {
+  font-size: 1.2rem;
+  color: #5d4037;
+  margin-bottom: 40px;
+  line-height: 1.6;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Новая большая кнопка */
+.main-start-btn {
+  background: #d35400;
+  color: white;
+  padding: 20px 45px;
+  font-size: 1.2rem;
+  font-weight: 700;
+  border-radius: 50px;
+  border: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 15px;
+  transition: all 0.3s ease;
+  box-shadow: 0 10px 30px rgba(211, 84, 0, 0.3);
+}
+
+.main-start-btn:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(211, 84, 0, 0.4);
+  background: #e67e22;
+}
+
+/* Фоновый декор (орнамент) */
+.hero-pattern-decor {
+  position: absolute;
+  bottom: -50px;
+  right: -50px;
+  width: 300px;
+  height: 300px;
+  background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M50 0L100 50L50 100L0 50Z' fill='%23d35400' fill-opacity='0.05'/%3E%3C/svg%3E");
+  z-index: 1;
+  opacity: 0.5;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 5%;
+  background: rgba(252, 246, 233, 0.8);
+  /* Полупрозрачный фон */
+  backdrop-filter: blur(10px);
+  /* Размытие заднего плана */
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  border-bottom: 1px solid rgba(168, 118, 75, 0.1);
+}
+
+.navbar-user {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: white;
+  padding: 8px 16px;
+  border-radius: 50px;
+  border: 1.5px solid #d35400;
+  /* Цвет акцента */
+  color: #d35400;
+  font-weight: 700;
+  box-shadow: 0 4px 12px rgba(211, 84, 0, 0.1);
+}
+
+.logo-text {
+  font-size: 1.6rem;
+  font-weight: 900;
+  color: #d35400;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* 1. Навигация */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  height: 80px;
+  background: rgba(252, 246, 233, 0.85);
+  backdrop-filter: blur(10px);
+  /* Эффект матового стекла */
+  border-bottom: 1px solid rgba(168, 118, 75, 0.15);
+  display: flex;
+  justify-content: center;
+}
+
+.nav-container {
+  width: 100%;
+  max-width: 1200px;
+  /* Ограничиваем ширину контента */
+  padding: 0 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo-group {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+}
+
+.logo-symbol {
+  width: 40px;
+  height: 40px;
+  background: #d35400;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  font-weight: 900;
+  font-size: 1.4rem;
+}
+
+.logo-text span {
+  color: #d35400;
+}
+
+/* Карточка пользователя */
+.user-stats-card {
+  background: white;
+  padding: 6px 16px 6px 6px;
+  border-radius: 40px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border: 1px solid rgba(168, 118, 75, 0.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.user-stats-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
+}
+
+.user-icon-bg {
+  width: 32px;
+  height: 32px;
+  background: #fdf5e6;
+  color: #d35400;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.user-info-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.u-name {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #5d4037;
+}
+
+.u-xp {
+  font-size: 0.75rem;
+  font-weight: 800;
+  color: #d35400;
+}
+
+/* 2. БОКА ПРИЛОЖЕНИЯ */
+/* .app-container {
+  background-color: #fcf6e9;
+  position: relative;
+  overflow-x: hidden;
+}
+
+.app-container::before,
+.app-container::after {
+  content: "";
+  position: fixed;
+  top: 0;
+  width: 100px; 
+  height: 100%;
+  background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M20 0L40 20L20 40L0 20Z' fill='%23d35400' fill-opacity='0.03'/%3E%3C/svg%3E");
+  z-index: 0;
+  pointer-events: none;
+}
+
+.app-container::before { left: 0; border-right: 1px solid rgba(211, 84, 0, 0.05); }
+.app-container::after { right: 0; border-left: 1px solid rgba(211, 84, 0, 0.05); } */
+
+/* Основной контент теперь не прилипает к краям */
+.content {
+  position: relative;
+  z-index: 1;
+  max-width: 1200px;
+  margin: 0 auto;
+  min-height: calc(100vh - 80px);
+}
+
+.hero-content {
+  padding-top: 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: calc(100vh - 160px);
+  /* Чтобы футер всегда был внизу */
+  justify-content: center;
+}
+
+/* Визуальный акцент */
+.hero-visual {
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+}
+
+.decor-diamond {
+  width: 60px;
+  height: 60px;
+  background: #d35400;
+  transform: rotate(45deg);
+  opacity: 0.15;
+  border: 2px solid #d35400;
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.decor-diamond::after {
+  content: '';
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  right: 10px;
+  bottom: 10px;
+  border: 1px solid #d35400;
+}
+
+/* Футер */
+.hero-footer {
+  width: 100%;
+  max-width: 600px;
+  margin-top: auto;
+  /* Прижимает к низу */
+  padding: 40px 0;
+  opacity: 0.6;
+}
+
+.footer-line {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #a8764b, transparent);
+  margin-bottom: 15px;
+}
+
+.hero-footer p {
+  font-size: 0.8rem !important;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin: 0;
+}
+
+/* Улучшаем читаемость заголовка */
+.hero h1 {
+  letter-spacing: -2px;
+  margin-bottom: 20px;
+}
+
+/* 2. Настраиваем контейнер с ОДНИМ типом узора */
+/* .app-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  
+  background-image: url("data:image/svg+xml,%3Csvg width='200' height='200' viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23d35400' fill-opacity='0.08'%3E%3Cpath d='M40 40c15-10 40-10 50 5s5 40-10 60-35 25-55 20-20-25-15-45 15-25 30-40zm40-10s25 10 35 35-10 50-35 50-40-20-45-40-5-45 45-45z'/%3E%3Cpath d='M140 140c15-10 40-10 50 5s5 40-10 60-35 25-55 20-20-25-15-45 15-25 30-40zm40-10s25 10 35 35-10 50-35 50-40-20-45-40-5-45 45-45z'/%3E%3C/g%3E%3C/svg%3E");
+  background-size: 350px;
+  background-attachment: fixed; 
+
+.app-container::before,
+.app-container::after,
+.side-decor {
+  display: none !important;
+} */
+
+.side-decor {
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 250px;
+  height: 600px;
+  z-index: -1;
+  /* Чтобы не мешали нажимать на кнопки */
+  opacity: 0.12;
+  /* Сделаем их ярче, чем основной фон */
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M50 0L100 50L50 100L0 50Z' fill='%23d35400'/%3E%3C/svg%3E");
+  background-size: 150px;
+  /* Крупный масштаб узора */
+}
+
+.left-decor {
+  left: -50px;
+  filter: blur(1px);
+}
+
+.right-decor {
+  right: -50px;
+  filter: blur(1px);
+}
+
+/* На мобилках лучше их скрыть, чтобы не мешали */
+@media (max-width: 1000px) {
+  .side-decor {
+    display: none;
+  }
+}
+
+/* .app-container::before,
+.app-container::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 150px;
+  height: 100%;
+  
+  background-image: url("data:image/svg+xml,%3Csvg width='180' height='180' viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23d35400' fill-opacity='0.15' fill-rule='evenodd'%3E%3Cpath d='M10 10c10-5 25-5 35 5s10 30 0 45-20 15-35 15-15-15-10-30s10-15 10-15zm30-5s20 5 30 20-5 30-20 30-25-10-30-20-5-30 20-30z'/%3E%3Cpath d='M90 90c10-5 25-5 35 5s10 30 0 45-20 15-35 15-15-15-10-30s10-15 10-15zm30-5s20 5 30 20-5 30-20 30-25-10-30-20-5-30 20-30z'/%3E%3Ccircle cx='55' cy='155' r='8'/%3E%3Ccircle cx='155' cy='55' r='8'/%3E%3C/g%3E%3C/svg%3E");
+  background-size: 180px;
+  background-repeat: repeat-y;
+  z-index: 0;
+}
+
+.app-container::before { left: 0; }
+.app-container::after { right: 0; } */
+
+/* Контейнер всей секции */
+.catalog-wrapper {
+  width: 100%;
+  max-width: 1200px;
+  /* Оптимальная ширина для сетки из 3-х карточек */
+  padding: 20px 40px;
+  box-sizing: border-box;
+}
+
+.route-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 30px;
+  /* Увеличиваем расстояние между ними */
+  width: 100%;
+  padding: 20px 0;
+}
+
+/* Обновляем саму карточку, чтобы она выглядела солидно */
+.route-card {
+  background: white;
+  border-radius: 24px;
+  padding: 25px;
+  display: flex;
+  flex-direction: column;
+
+  /* ИСПРАВЛЕНИЕ НАЛОЖЕНИЯ: */
+  height: auto;
+  /* Высота подстраивается под контент */
+  min-height: 250px;
+  /* Минимальный порог, чтобы не были слишком мелкими */
+
+  border: 1px solid rgba(168, 118, 75, 0.1);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  position: relative;
+  /* Чтобы элементы внутри не вылетали */
+}
+
+.card-content {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 20px;
+  flex: 1;
+  /* Позволяет контенту занимать всё свободное место до кнопки */
+}
+
+.card-text h3 {
+  margin: 0 0 8px 0;
+  font-size: 1.6rem;
+  color: #2c3e50;
+}
+
+.card-text p {
+  margin: 0;
+  font-size: 1rem;
+  color: #5d4037;
+  line-height: 1.4;
+  opacity: 0.8;
+}
+
+/* Кнопка "Изучить" на всю ширину карточки */
+.card-explore-btn {
+  width: 100%;
+  padding: 16px;
+  border-radius: 16px;
+  border: none;
+  color: white;
+  font-weight: 800;
+  font-size: 1.1rem;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  transition: transform 0.2s, filter 0.2s;
+}
+
+.card-explore-btn:hover {
+  filter: brightness(1.1);
+  transform: scale(1.02);
+}
+
+.btn-xp {
+  background: rgba(254, 254, 254, 0.25);
+  padding: 4px 10px;
+  border-radius: 8px;
+  font-size: 0.9rem;
+}
+
+.app-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  /* Занимает всю ширину */
+  margin: 10;
+  padding: 10;
+  /* Убедись, что нет max-width или поставь 100% */
+  max-width: 100%;
+}
+
+main {
+  flex: 1;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* Центрирует содержимое, но не сжимает его */
+}
+
+.progress-fill {
+  height: 100%;
+  border-radius: 10px;
+  transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.journey-content {
+  padding: 0 40px 40px 40px;
+}
+
+.step-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.step-card {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.step-count {
+  color: #a8764b;
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+
+.step-icon {
+  font-size: 1.5rem;
+}
+
+.step-name {
+  font-size: 1.4rem;
+  margin: 0;
+  color: #2c3e50;
+}
+
+.step-description {
+  color: #5d4037;
+  line-height: 1.6;
+  margin-bottom: 25px;
+}
+
+.task-box {
+  background: #fff9f5;
+  padding: 20px;
+  border-radius: 20px;
+  border-left: 6px solid;
+  margin-bottom: 30px;
+}
+
+.task-label {
+  font-weight: 800;
+  font-size: 0.75rem;
+  letter-spacing: 1px;
+  color: #a8764b;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.next-btn {
+  width: 100%;
+  padding: 20px;
+  border: none;
+  border-radius: 18px;
+  color: white;
+  font-size: 1.1rem;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.next-btn:hover { transform: scale(1.02); }
